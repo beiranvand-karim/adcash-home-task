@@ -13,8 +13,8 @@
         <span>{{currentYear$ | async}}</span>
 
         <span class="drop-down">
-          <button (click)="addEventButtonClicked()" class="btn btn-default">add event</button>
-          <div [class.show]="addEventVisibility$ | async">
+          <button (click)="addEventButtonClicked()" class="btn btn-default" #toggle>add event</button>
+          <div [class.show]="addEventVisibility$ | async" class="pop-up" #popUp>
             <app-add-event-form></app-add-event-form>
           </div>
         </span>
