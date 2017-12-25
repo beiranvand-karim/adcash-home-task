@@ -7,13 +7,14 @@ main {
   justify-content: center;
 
   > div.container {
-    width: 976px;
+    width: 930px;
 
     > section.top {
       display: flex;
-      height: 30px;
+      height: 75px;
       padding-bottom: 20px;
       padding-top: 20px;
+      width: 900px;
 
       > div.left {
 
@@ -39,8 +40,8 @@ main {
 
               z-index: 100;
               position: absolute;
-              width: 180px;
-              height: 200px;
+              width: 250px;
+              height: 345px;
               display: none;
               background-color: #fff;
               padding: 25px;

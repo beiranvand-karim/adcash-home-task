@@ -13,7 +13,7 @@
         <span>{{currentYear$ | async}}</span>
 
         <span class="drop-down">
-          <button (click)="addEventButtonClicked()">add event</button>
+          <button (click)="addEventButtonClicked()" class="btn btn-default">add event</button>
           <div [class.show]="addEventVisibility$ | async">
             <app-add-event-form></app-add-event-form>
           </div>
@@ -21,9 +21,9 @@
       </div>
 
       <div class="right">
-        <button (click)="previousMonth()"> < </button>
+        <button (click)="previousMonth()" class="btn btn-default"> < </button>
         <h5>current month</h5>
-        <button (click)="nextMonth()"> > </button>
+        <button (click)="nextMonth()" class="btn btn-default"> > </button>
       </div>
 
 

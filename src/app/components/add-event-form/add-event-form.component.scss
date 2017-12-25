@@ -8,6 +8,10 @@ div {
 
     > div {
 
+      &.buttons {
+        margin-top: 20px;
+      }
+
       > label {
 
         display: block;
