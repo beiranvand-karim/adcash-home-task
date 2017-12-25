@@ -1,0 +1,32 @@
+
+
+
+<div>
+  <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="title">title</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+
+    <div>
+      <label for="description">description</label>
+      <input id="description" type="text" formControlName="description">
+    </div>
+
+    <div>
+      <label for="date">date</label>
+      <input id="date" type="text" formControlName="date">
+    </div>
+
+    <div>
+      <label for="time">time</label>
+      <input id="time" type="text" formControlName="time">
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="form.invalid">save</button>
+      <button (click)="buttonCancelClicked()">cancel</button>
+    </div>
+  </form>
+</div>

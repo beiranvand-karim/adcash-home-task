@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {CalenderService} from './services/calender.service';
+import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {UserInterfaceService} from './services/user-interface.service';
-import {Month} from './classes/month';
+import {Month} from '../../classes/month';
+import {CalenderService} from '../../services/calender.service';
+import {UserInterfaceService} from '../../services/user-interface.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-calender',
+  templateUrl: './calender.component.html',
+  styleUrls: ['./calender.component.scss']
 })
-export class AppComponent implements OnInit {
+export class CalenderComponent implements OnInit {
+
 
   days$: Observable<Array<number>>;
 
@@ -60,5 +61,4 @@ export class AppComponent implements OnInit {
     this.calenderService.getNextMonth();
 
   }
-
 }

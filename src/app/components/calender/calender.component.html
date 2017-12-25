@@ -1,0 +1,46 @@
+
+
+
+<main>
+
+  <div class="container">
+
+    <section class="top">
+
+      <div class="left">
+
+        <span>{{getMonthName(currentMonth$ | async)}}</span>
+        <span>{{currentYear$ | async}}</span>
+
+        <span class="drop-down">
+          <button (click)="addEventButtonClicked()">add event</button>
+          <div [class.show]="addEventVisibility$ | async">
+            <app-add-event-form></app-add-event-form>
+          </div>
+        </span>
+      </div>
+
+      <div class="right">
+        <button (click)="previousMonth()"> < </button>
+        <h5>current month</h5>
+        <button (click)="nextMonth()"> > </button>
+      </div>
+
+
+
+    </section>
+
+    <section class="bottom">
+      <ul>
+
+        <li *ngFor="let day of days$ | async">
+          <app-day [day]="day" [events]="getEvents(day)"></app-day>
+        </li>
+
+      </ul>
+    </section>
+
+  </div>
+
+
+</main>
