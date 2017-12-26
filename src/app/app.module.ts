@@ -12,7 +12,6 @@ import {UserInterfaceService} from './services/user-interface.service';
 import { EventsViewComponent } from './components/events-view/events-view.component';
 import { CalenderComponent } from './components/calender/calender.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

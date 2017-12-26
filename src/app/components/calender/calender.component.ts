@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {Month} from '../../classes/month';
 import {CalenderService} from '../../services/calender.service';
 import {UserInterfaceService} from '../../services/user-interface.service';
+import {NodeUtils} from '../../classes/node-utils';
 
 @Component({
   selector: 'app-calender',
@@ -41,23 +42,13 @@ export class CalenderComponent implements OnInit {
 
   @HostListener('document:click', ['$event']) togglePopUpLink(event) {
 
-    if (! this.isDescendant(this.popUp.nativeElement, event.target) && event.target !== this.toggle.nativeElement) {
+    if (! NodeUtils.isDescendant(this.popUp.nativeElement, event.target) && event.target !== this.toggle.nativeElement) {
       this.userInterfaceService.hideAddEvent();
     }
 
   }
 
-  isDescendant(parent, child) {
-    let node = child;
-    while (node !== null) {
-      if (node === parent) {
-        return true;
-      } else {
-        node = node.parentNode;
-      }
-    }
-    return false;
-  }
+
 
 
   getMonthName(index) {

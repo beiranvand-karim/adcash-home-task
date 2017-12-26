@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CalenderService} from '../../services/calender.service';
-import {Event} from '../../classes/event';
 import {UserInterfaceService} from '../../services/user-interface.service';
+import {EventFactorySingleton} from '../../classes/event-factory';
 
 @Component({
   selector: 'app-add-event-form',
@@ -23,7 +23,7 @@ export class AddEventFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private calenderService: CalenderService,
-    private userInterfaceService: UserInterfaceService
+    private userInterfaceService: UserInterfaceService,
   ) {
 
     this.form = this.formBuilder.group({
@@ -35,7 +35,6 @@ export class AddEventFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.calenderService.eventsCollection$.subscribe(console.log);
   }
 
   buttonCancelClicked() {
@@ -56,8 +55,9 @@ export class AddEventFormComponent implements OnInit {
       date.setMinutes( <number> controls.time.value.split(':')[1]);
     }
 
-
-    const event = new Event(controls.title.value, controls.description.value, date);
+    const event = EventFactorySingleton
+      .eventFactorySingletonInstance
+      .constructEvent(controls.title.value, controls.description.value, date);
 
     this.calenderService.setEventsCollection(event);
 
